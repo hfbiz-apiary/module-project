@@ -1,4 +1,4 @@
-module-project
+module-Project
 ==============
 
 APIARY - module Project
