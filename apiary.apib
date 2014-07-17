@@ -42,9 +42,56 @@ Project is main container for application's data.
 + Response 200 (application/json)
 
     [Project][]
-            
+    
 ### Remove a Project [DELETE]
 + Response 204
+
+## Project's parameters [/projects/{id}/parameters]
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Project.
+
+### Retrive Project's parameters [GET]
+
++ Response 200
+
+    + Body
+    
+                {
+                    "parameters": [
+                        {
+                            "name": "parameter 1",
+                            "value": "abcd"
+                        },
+                        {
+                            "name": "parameter 2",
+                            "value": 123
+                        }
+                    ]
+                }
+            
+
+### Update Project's parameters [PUT]
+If parameter value contains `undefined` it will be removed.
+
++ Request
+
+    + Body
+    
+                {
+                    "parameters": [
+                        {
+                            "name": "parameter 1",
+                            "value": "abcd"
+                        },
+                        {
+                            "name": "parameter 2",
+                            "value": undefined
+                        }
+                    ]
+                }
+
++ Response 200
 
 ## Projects Collection [/projects]
 Collection of Projects.
