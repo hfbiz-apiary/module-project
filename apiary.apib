@@ -1,0 +1,100 @@
+FORMAT: 1A
+
+# Module Project
+REST API for module Project used for project based applications.
+
+## Project [/projects/{id}]
+Project is main container for application's data.
+
++ Model (application/json)
+
+    + Body
+    
+            {
+                "id": 1,
+                "title": "Title of Project",
+                "parameters": [
+                    {
+                        "name": "parameter 1",
+                        "value": "abcd"
+                    },
+                    {
+                        "name": "parameter 2",
+                        "value": 123
+                    }
+                ]
+            }
+
++ Parameters
+    + id (required, number, `1`) ... Numeric `id` of the Project to perform action with. Has example value.
+
+
+### Retrieve a Project [GET]
++ Response 200
+
+    [Project][]
+
+### Update a Project [PUT]
++ Request (application/json)
+
+        { "title": "Updated title of project" }
+        
++ Response 200 (application/json)
+
+    [Project][]
+            
+### Remove a Project [DELETE]
++ Response 204
+
+## Projects Collection [/projects]
+Collection of Projects.
+
++ Model (application/json)
+
+    + Body
+    
+            [
+                {
+                    "id": 1,
+                    "title": "Title of Project 1",
+                    "parameters": [
+                        {
+                            "name": "parameter 1",
+                            "value": "abcd"
+                        },
+                        {
+                            "name": "parameter 2",
+                            "value": 123
+                        }
+                    ]
+                },
+                {
+                    "id": 2,
+                    "title": "Title of Project 2",
+                    "parameters": [
+                        {
+                            "name": "parameter 1",
+                            "value": "abcd"
+                        },
+                        {
+                            "name": "parameter 2",
+                            "value": 123
+                        }
+                    ]
+                }
+            ]
+
+### List all available Projects [GET]
++ Response 200 (application/json)
+
+    [Projects Collection][]
+
+### Create a Project [POST]
++ Request (application/json)
+
+        { "title": "New project" }
+
++ Response 201 (application/json)
+
+    [Project][]
+
