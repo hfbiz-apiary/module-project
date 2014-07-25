@@ -41,7 +41,14 @@ Project is main container for application's data.
         
 + Response 200 (application/json)
 
-    [Project][]
+
+    + Body
+    
+            {
+                "id": 1,
+                "title": "Updated title of project",
+            }
+
     
 ### Remove a Project [DELETE]
 + Response 204
@@ -86,12 +93,22 @@ If parameter value contains `undefined` it will be removed.
                         },
                         {
                             "name": "parameter 2",
-                            "value": undefined
+                            "value": null
                         }
                     ]
                 }
 
 + Response 200
+    + Body
+    
+                {
+                    "parameters": [
+                        {
+                            "name": "parameter 1",
+                            "value": "abcd"
+                        }
+                    ]
+                }
 
 ## Projects Collection [/projects]
 Collection of Projects.
