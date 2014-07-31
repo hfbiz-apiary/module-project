@@ -12,17 +12,8 @@ Project is main container for application's data.
     
             {
                 "id": 1,
+                "type": "Type of Project",
                 "title": "Title of Project",
-                "parameters": [
-                    {
-                        "name": "parameter 1",
-                        "value": "abcd"
-                    },
-                    {
-                        "name": "parameter 2",
-                        "value": 123
-                    }
-                ]
             }
 
 + Parameters
@@ -30,9 +21,15 @@ Project is main container for application's data.
 
 
 ### Retrieve a Project [GET]
-+ Response 200
++ Response 200 (application/json)
 
-    [Project][]
+    
+            {
+                "id": 1,
+                "type": "Type of Project",
+                "title": "Title of Project"
+            }
+
 
 ### Update a Project [PUT]
 + Request (application/json)
@@ -46,37 +43,48 @@ Project is main container for application's data.
     
             {
                 "id": 1,
-                "title": "Updated title of project",
+                "title": "Updated title of project"
             }
 
     
 ### Remove a Project [DELETE]
 + Response 204
 
-## Project's parameters [/projects/{id}/parameters]
+## Retrieve Project's parameters [/projects/{id}?params=true]
+Retrieve project with parameters.
+
++ Model (application/json)
+
+    + Body
+    
+            {
+                "id": 1,
+                "type": "Type of Project",
+                "title": "Title of Project",
+                "parameters": [
+                    {
+                        "name": "parameter 1",
+                        "value": "abcd"
+                    },
+                    {
+                        "name": "parameter 2",
+                        "value": 123
+                    }
+                ]
+            }
+
+### Retrieve Project's parameters [GET]
+If `params=true` in URL is not set, returns project without parameters.
+
++ Response 200
+    [Retrieve Project's parameters][]
+
+
+## Update Project's parameters [/projects/{id}/parameters]
 
 + Parameters
     + id (required, number, `1`) ... Numeric `id` of the Project.
 
-### Retrive Project's parameters [GET]
-
-+ Response 200
-
-    + Body
-    
-                {
-                    "parameters": [
-                        {
-                            "name": "parameter 1",
-                            "value": "abcd"
-                        },
-                        {
-                            "name": "parameter 2",
-                            "value": 123
-                        }
-                    ]
-                }
-            
 
 ### Update Project's parameters [PUT]
 If parameter value contains `null` it will be removed.
@@ -156,7 +164,11 @@ Collection of Projects.
 ### Create a Project [POST]
 + Request (application/json)
 
-        { "title": "New project" }
+        {
+            "id": 1,
+            "type": "Type of Project",
+            "title": "Title of Project"
+        }
 
 + Response 201 (application/json)
 
