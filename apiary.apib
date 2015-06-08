@@ -78,17 +78,19 @@ Retrieve project with parameters.
 If `params=true` in URL is not set, returns project without parameters.
 
 + Response 200
+
     [Retrieve Project's parameters][]
 
 
 ## Update Project's parameters [/projects/{id}/parameters]
 
 + Parameters
+
     + id (required, number, `1`) ... Numeric `id` of the Project.
 
 
 ### Update Project's parameters [PUT]
-If parameter value contains `null` it will be removed.
+If parameter value contains `null`, parameter will be removed.
 
 + Request
 
